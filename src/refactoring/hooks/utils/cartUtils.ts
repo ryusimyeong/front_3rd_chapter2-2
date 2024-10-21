@@ -10,7 +10,6 @@ export const getMaxApplicableDiscount = (item: CartItem) => {
     product: { discounts },
     quantity,
   } = item;
-  console.log(discounts);
 
   return discounts.reduce(
     (maxDiscount, discount) =>
@@ -33,7 +32,6 @@ export const calculateItemTotal = (item: CartItem) => {
   } = item;
 
   const discount = getMaxApplicableDiscount(item);
-  console.log(discount);
 
   return price * quantity * (1 - discount);
 };
