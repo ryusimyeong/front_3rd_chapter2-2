@@ -4,13 +4,15 @@ import { Product } from '../../types.ts';
 export const useProducts = (initialProducts: Product[]) => {
   const [products, setProducts] = useState<Product[]>(initialProducts);
 
-  const addProduct = (target: Product) => {
-    setProducts([...products, target]);
+  const addProduct = (newProduct: Product) => {
+    setProducts((prevProducts) => [...prevProducts, newProduct]);
   };
 
-  const updateProduct = (target: Product) => {
-    setProducts(
-      products.map((product) => (product.id === target.id ? target : product)),
+  const updateProduct = (updatedProduct: Product) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((p) =>
+        p.id === updatedProduct.id ? updatedProduct : p,
+      ),
     );
   };
 
