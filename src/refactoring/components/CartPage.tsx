@@ -1,5 +1,6 @@
 import { CartItem, Coupon, Product } from '../../types.ts';
 import { useCart, useCoupons } from '../hooks';
+import { formatCurrency } from '../hooks/utils/formatCurrency.ts';
 
 interface Props {
   products: Product[];
@@ -68,7 +69,7 @@ export const CartPage = ({ products, coupons }: Props) => {
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold">{product.name}</span>
                     <span className="text-gray-600">
-                      {product.price.toLocaleString()}원
+                      {formatCurrency(product.price)}
                     </span>
                   </div>
                   <div className="text-sm text-gray-500 mb-2">
@@ -195,12 +196,12 @@ export const CartPage = ({ products, coupons }: Props) => {
           <div className="mt-6 bg-white p-4 rounded shadow">
             <h2 className="text-2xl font-semibold mb-2">주문 요약</h2>
             <div className="space-y-1">
-              <p>상품 금액: {totalBeforeDiscount.toLocaleString()}원</p>
+              <p>상품 금액: {formatCurrency(totalBeforeDiscount)}</p>
               <p className="text-green-600">
-                할인 금액: {totalDiscount.toLocaleString()}원
+                할인 금액: {formatCurrency(totalDiscount)}
               </p>
               <p className="text-xl font-bold">
-                최종 결제 금액: {totalAfterDiscount.toLocaleString()}원
+                최종 결제 금액: {formatCurrency(totalAfterDiscount)}
               </p>
             </div>
           </div>
