@@ -7,7 +7,29 @@ export const useCart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCoupon, setSelectedCoupon] = useState<Coupon | null>(null);
 
-  const addToCart = (product: Product) => {};
+  const addToCart = (product: Product) => {
+    const existingItem = cart.find(
+      (cartItem) => cartItem.product.id === product.id,
+    );
+
+    const newCart: CartItem[] = existingItem
+      ? cart.map((cartItem) => {
+          if (cartItem.product.id === product.id) {
+            cartItem.quantity++;
+          }
+
+          return cartItem;
+        })
+      : [
+          ...cart,
+          {
+            product,
+            quantity: 1,
+          },
+        ];
+
+    setCart(newCart);
+  };
 
   const removeFromCart = (productId: string) => {};
 
@@ -19,7 +41,7 @@ export const useCart = () => {
     totalBeforeDiscount: 0,
     totalAfterDiscount: 0,
     totalDiscount: 0,
-  })
+  });
 
   return {
     cart,
