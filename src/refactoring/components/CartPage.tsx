@@ -4,19 +4,19 @@ import { useCart, useCoupons } from '../hooks';
 interface Props {
   products: Product[];
   coupons: Coupon[];
+  selectedCoupon: Coupon | null;
   onCouponApply: (coupon: Coupon) => void;
 }
 
-export const CartPage = ({ products, coupons, onCouponApply }: Props) => {
+export const CartPage = ({
+  products,
+  coupons,
+  selectedCoupon,
+  onCouponApply,
+}: Props) => {
   // 데이터
-  const {
-    cart,
-    addToCart,
-    removeFromCart,
-    updateQuantity,
-    calculateTotal,
-    selectedCoupon,
-  } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity, calculateTotal } =
+    useCart();
 
   const { totalBeforeDiscount, totalAfterDiscount, totalDiscount } =
     calculateTotal();

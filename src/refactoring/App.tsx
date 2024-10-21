@@ -48,7 +48,8 @@ const initialCoupons: Coupon[] = [
 
 const App = () => {
   const { products, updateProduct, addProduct } = useProducts(initialProducts);
-  const { coupons, addCoupon, applyCoupon } = useCoupons(initialCoupons);
+  const { coupons, addCoupon, applyCoupon, selectedCoupon } =
+    useCoupons(initialCoupons);
   const [isAdmin, setIsAdmin] = useState(false);
 
   return (
@@ -77,6 +78,7 @@ const App = () => {
           <CartPage
             products={products}
             coupons={coupons}
+            selectedCoupon={selectedCoupon}
             onCouponApply={applyCoupon}
           />
         )}

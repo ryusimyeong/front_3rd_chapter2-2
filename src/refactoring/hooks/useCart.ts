@@ -5,7 +5,6 @@ import { calculateCartTotal, updateCartItemQuantity } from './utils/cartUtils';
 
 export const useCart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [selectedCoupon, setSelectedCoupon] = useState<Coupon | null>(null);
 
   const addToCart = (product: Product) => {
     // 재고가 없으면 실행 안 함
@@ -52,6 +51,5 @@ export const useCart = () => {
     removeFromCart,
     updateQuantity,
     calculateTotal,
-    selectedCoupon,
   };
 };
