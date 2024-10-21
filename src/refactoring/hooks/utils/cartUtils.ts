@@ -42,7 +42,6 @@ export const calculateCartTotal = (
 ) => {
   let totalBeforeDiscount: number = 0;
   let totalAfterDiscount: number = 0;
-  let totalDiscount: number = 0;
 
   cart.forEach((item) => {
     const {
@@ -54,6 +53,7 @@ export const calculateCartTotal = (
     totalAfterDiscount += calculateItemTotal(item);
   });
 
+  let totalDiscount: number = 0;
   totalDiscount = totalBeforeDiscount - totalAfterDiscount;
 
   // 쿠폰 적용
