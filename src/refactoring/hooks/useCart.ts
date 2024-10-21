@@ -8,6 +8,11 @@ export const useCart = () => {
   const [selectedCoupon, setSelectedCoupon] = useState<Coupon | null>(null);
 
   const addToCart = (product: Product) => {
+    // 재고가 없으면 실행 안 함
+    if (!product.stock) {
+      return;
+    }
+
     const existingItem = cart.find(
       (cartItem) => cartItem.product.id === product.id,
     );
