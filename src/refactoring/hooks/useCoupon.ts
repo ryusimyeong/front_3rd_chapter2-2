@@ -8,5 +8,7 @@ export const useCoupons = (initialCoupons: Coupon[]) => {
     setCoupons([...coupons, target]);
   };
 
-  return { coupons, addCoupon };
+  const applyCoupon = (coupon: Coupon) => {};
+
+  return { coupons, addCoupon, applyCoupon };
 };

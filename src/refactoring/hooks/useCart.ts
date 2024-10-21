@@ -40,8 +40,6 @@ export const useCart = () => {
 
   const updateQuantity = (productId: string, newQuantity: number) => {};
 
-  const applyCoupon = (coupon: Coupon) => {};
-
   const calculateTotal = () => ({
     totalBeforeDiscount: 0,
     totalAfterDiscount: 0,
@@ -53,7 +51,6 @@ export const useCart = () => {
     addToCart,
     removeFromCart,
     updateQuantity,
-    applyCoupon,
     calculateTotal,
     selectedCoupon,
   };
