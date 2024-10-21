@@ -10,10 +10,10 @@ export const formatCurrency = (
 ): string => {
   switch (currency) {
     case 'JPY':
-      return `￥ ${targetNumber.toLocaleString('ja-JP')}`;
+      return `￥${targetNumber.toLocaleString('ja-JP')}`;
 
     case 'USD':
-      return `$ ${targetNumber.toLocaleString('en-US')}`;
+      return `$${targetNumber.toLocaleString('en-US')}`;
 
     default:
       return `${targetNumber.toLocaleString('ko-KR')}원`;

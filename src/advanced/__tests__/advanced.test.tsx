@@ -266,7 +266,10 @@ describe('advanced > ', () => {
 
   describe('새로운 유틸함수 및 custom hook 테스트.', () => {
     test('formatCurrency', () => {
-      expect(true).toBe(false);
+      expect(formatCurrency(1000)).toBe('1,000원');
+      expect(formatCurrency(1000, 'KRW')).toBe('1,000원');
+      expect(formatCurrency(1000, 'USD')).toBe('$1,000');
+      expect(formatCurrency(1000, 'JPY')).toBe('￥1,000');
     });
 
     test('새로운 hook 함수르 만든 후에 테스트 코드를 작성해서 실행해보세요', () => {
