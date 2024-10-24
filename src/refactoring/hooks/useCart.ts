@@ -1,5 +1,5 @@
 // useCart.ts
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { CartItem, Coupon, Product } from '../../types';
 import { calculateCartTotal, updateCartItemQuantity } from './utils/cartUtils';
 
@@ -46,7 +46,10 @@ export const useCart = () => {
     setSelectedCoupon(target);
   };
 
-  const calculateTotal = () => calculateCartTotal(cart, selectedCoupon);
+  const calculateTotal = useCallback(
+    () => calculateCartTotal(cart, selectedCoupon),
+    [cart, selectedCoupon],
+  );
 
   return {
     cart,
